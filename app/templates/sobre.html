@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReVira Manaus</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='sobre.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='global.css') }}">
+</head>
+
+<body>
+
+    <nav>
+        <a href="{{ url_for('home') }}"><img src="{{ url_for('static', filename='logo_header2.svg') }}" alt="ReVira Manaus" width="300"></a>
+        <ul>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('sobre') }}">Sobre</a></li>
+            <li><a href="{{ url_for('descarte') }}">Forma de Descarte</a></li>
+            <li><a href="{{ url_for('coleta') }}">Pontos de Coleta</a></li>
+            <li><a href="{{ url_for('contato') }}">Contato</a></li>
+            <li><a href="{{ url_for('cadastro') }}" target="_blank">Cadastro</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <img src="{{ url_for('static', filename='logo_header2.svg') }}" alt="ReVira Manaus" width="300">
+        <h1>Transformando resíduos em oportunidades!</h1>
+    </header>
+
+    <main>
+        <section class="section">
+            <h2>Missão, Visão e Valores</h2>
+            <div class="values">
+                <h3>Missão</h3>
+                <p>O ReVira Manaus tem como missão promover a conscientização ambiental e facilitar o descarte correto de resíduos em nossa cidade. Através de uma plataforma digital inovadora, incentivamos a reciclagem e o cuidado com o meio ambiente, recompensando ações sustentáveis de pessoas e empresas.</p>
+
+                <h3>Visão</h3>
+                <p>Queremos ser a principal plataforma de educação ambiental e reciclagem na Amazônia, ajudando a construir um futuro mais sustentável e uma Manaus mais limpa. Buscamos conectar cidadãos, empresas e órgãos públicos em ações de preservação ambiental.</p>
+
+                <h3>Valores</h3>
+                <ul>
+                    <li><strong>Sustentabilidade:</strong> Compromisso com a preservação do meio ambiente e das futuras gerações.</li>
+                    <li><strong>Inovação:</strong> Estamos sempre em busca de soluções tecnológicas e criativas para otimizar o processo de reciclagem e descarte responsável.</li>
+                    <li><strong>Responsabilidade Social:</strong> Nossas ações visam beneficiar a comunidade e garantir um impacto positivo no planeta.</li>
+                    <li><strong>Transparência:</strong> Mantemos clareza e honestidade em todas as nossas operações, com compromisso com nossos parceiros e membros.</li>
+                    <li><strong>Parcerias:</strong> Valorizamos as colaborações com empresas e órgãos públicos para expandir o impacto de nossas ações sustentáveis.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Como Funciona</h2>
+            <div class="how-it-works">
+                <h3>Educação Ambiental</h3>
+                <p>Através de um guia interativo, ensinamos como fazer o descarte correto de diferentes tipos de materiais, utilizando uma barra de busca que torna o processo rápido e fácil para qualquer usuário.</p>
+
+                <h3>Mapa de Pontos de Coleta</h3>
+                <p>Com o nosso mapa, você pode encontrar os pontos de coleta de recicláveis em Manaus e nos arredores, facilitando o descarte dos seus materiais de forma prática e eficiente.</p>
+
+                <h3>Cadastro de Membros</h3>
+                <p>Ao se cadastrar como membro, você pode acumular pontos e cashback ao realizar descartes nos pontos de coleta ou solicitar a coleta domiciliar, trocando seus pontos por descontos em contas de água, energia, vale-transporte ou em produtos das empresas parceiras.</p>
+
+                <h3>Cadastro de Empresas para Descarte Específico</h3>
+                <p>Se você é uma empresa que precisa realizar o descarte de materiais sensíveis, a plataforma oferece um serviço de agendamento com certificação de que o descarte será feito de maneira segura e ambientalmente responsável.</p>
+
+                <h3>Cadastro de Empresas Coletoras</h3>
+                <p>Empresas podem se cadastrar como pontos de coleta, recebendo materiais recicláveis e comercializando-os através da nossa plataforma, contribuindo para a economia circular e a sustentabilidade.</p>
+
+                <h3>Sistema de Pontos & Cashback</h3>
+                <p>Os pontos acumulados na plataforma podem ser convertidos em dinheiro, descontos em contas essenciais como água e energia, vale-transporte ou até mesmo em produtos de empresas parceiras, incentivando um consumo mais sustentável.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Seja um Parceiro Sustentável</h2>
+            <p>O ReVira Manaus oferece uma oportunidade única para empresas e membros se envolverem ativamente com a sustentabilidade. Cadastre-se e faça parte dessa transformação ambiental!</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 ReVira Manaus - Plataforma de Descarte Sustentável. <a href="https://www.reviramanaus.com.br">www.reviramanaus.com.br</a></p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReVira Manaus</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='coleta.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='global.css') }}">
+</head>
+
+<body>
+
+    <nav>
+        <a href="{{ url_for('home') }}"><img src="{{ url_for('static', filename='logo_header2.svg') }}" alt="ReVira Manaus" width="300"></a>
+        <ul>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('sobre') }}">Sobre</a></li>
+            <li><a href="{{ url_for('descarte') }}">Forma de Descarte</a></li>
+            <li><a href="{{ url_for('coleta') }}">Pontos de Coleta</a></li>
+            <li><a href="{{ url_for('contato') }}">Contato</a></li>
+            <li><a href="{{ url_for('cadastro') }}" target="_blank">Cadastro</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <img src="{{ url_for('static', filename='logo_header2.svg') }}" alt="ReVira Manaus" width="300">
+        <h1>Transformando resíduos em oportunidades!</h1>
+    </header>
+
+    <main>
+        <section class="section">
+            <h2>Busque um ponto de coleta próximo de você</h2>
+            <div class="search-container">
+                <input type="text" id="search" placeholder="Digite sua cidade ou bairro">
+                <button onclick="buscarPontos()">Buscar</button>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Pontos de Coleta Disponíveis</h2>
+            <div class="locations" id="locations">
+                <div class="location-card">
+                    <h3>EcoPonto Central</h3>
+                    <p>Endereço: Rua Verde, 123 - Centro</p>
+                    <p>Materiais aceitos: Plástico, Vidro, Papel</p>
+                </div>
+                <div class="location-card">
+                    <h3>ReVira Fácil</h3>
+                    <p>Endereço: Av. Sustentável, 456 - Zona Sul</p>
+                    <p>Materiais aceitos: Eletrônicos, Metal</p>
+                </div>
+                <div class="location-card">
+                    <h3>Ponto Verde</h3>
+                    <p>Endereço: Rua do Futuro, 789 - Bairro Ecológico</p>
+                    <p>Materiais aceitos: Orgânicos, Papelão</p>
+                </div>
+            </div>
+        </section>
+
+        <a href="{{ url_for('home') }}" class="back-button">Voltar para a Página Inicial</a>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 ReVira Manaus - Plataforma de Descarte Sustentável.</p>
+    </footer>
+
+    <script>
+        function buscarPontos() {
+            let termo = document.getElementById('search').value.toLowerCase();
+            let locais = document.querySelectorAll('.location-card');
+            locais.forEach(local => {
+                let texto = local.innerText.toLowerCase();
+                if (texto.includes(termo)) {
+                    local.style.display = 'block';
+                } else {
+                    local.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

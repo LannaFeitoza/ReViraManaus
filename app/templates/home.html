@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReVira Manaus</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='global.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+    <link rel="shortcut icon" href="logo_icon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Removendo margens superiores do body e do nav */
+        body, html {
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav {
+            margin-top: 0;
+            padding-top: 0;
+            position: relative; /* Mantém a estrutura sem deslocamento */
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('home') }}"><img src="{{ url_for('static', filename='logo_header2.svg') }}" alt="ReVira Manaus" width="300"></a>
+        <ul>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('sobre') }}">Sobre</a></li>
+            <li><a href="{{ url_for('descarte') }}">Forma de Descarte</a></li>
+            <li><a href="{{ url_for('coleta') }}">Pontos de Coleta</a></li>
+            <li><a href="{{ url_for('contato') }}">Contato</a></li>
+            <li><a href="{{ url_for('cadastro') }}" target="_blank">Cadastro</a></li>
+        </ul>
+    </nav>
+    
+    <header>
+        <img src="{{ url_for('static', filename='logo_header2.svg') }}" alt="ReVira Manaus" width="300">
+        <h1>Transformando resíduos em oportunidades!</h1>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="box" id="box-container">
+                <p id="box-text" class="show">O ReVira Manaus é uma plataforma inovadora que visa facilitar o descarte correto de resíduos em Manaus. Através de uma experiência digital intuitiva, incentivamos a reciclagem e o cuidado com o meio ambiente, recompensando ações sustentáveis de pessoas e empresas.</p>
+                <div class="button-container">
+                    <button onclick="prevBox()" id="prev-btn" style="display: none;">Voltar</button>
+                    <button onclick="nextBox()" id="next-btn">Próximo</button>
+                </div>
+            </div>
+        </div>
+
+        <section class="section">
+            <h2>Conectamos você à reciclagem inteligente!</h2>
+            <p class="highlight">O ReVira Manaus facilita o descarte correto de resíduos, oferece recompensas e fortalece a economia circular. <a href="{{ url_for('cadastro') }}">Cadastre-se agora!</a></p>
+        </section>
+
+        <div class="container">
+            <div class="box">
+                <h2>Como Descartar?</h2>
+                <p>Descubra a forma correta de descartar resíduos e contribua com o meio ambiente.</p>
+                <a href="{{ url_for('descarte') }}" class="highlight">Saiba mais sobre descarte correto</a>
+            </div>
+            <div class="box">
+                <h2>Pontos de Coleta</h2>
+                <p>Encontre locais próximos para descartar seus resíduos corretamente.</p>
+                <a href="{{ url_for('coleta') }}" class="highlight">Ver pontos de coleta</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 ReVira Manaus - Plataforma de Descarte Sustentável. <a href="https://www.reviramanaus.com.br">www.reviramanaus.com.br</a></p>
+    </footer>
+
+    <script>
+    const boxes = [
+        "Descubra como descartar materiais de maneira fácil e rápida, pesquisando pelo nome deles no menu 'Forma de Descarte'.",
+        "Encontre pontos de coleta próximos a você em Manaus com a ajuda do menu 'Pontos de Coleta'.",
+        "Ao se cadastrar como membro, você acumula pontos e cashback ao fazer o descarte correto nos pontos de coleta ou solicitar a coleta domiciliar, podendo usar seus pontos para descontos em contas de água, energia, vale-transporte e até em produtos de empresas parceiras.",
+        "Se você é empresa e deseja se tornar ponto de coleta ou vender produtos reciclados na nossa plataforma, faça seu cadastro como empresa parceira.",
+        "Empresas que precisam descartar materiais sensíveis podem se cadastrar, agendar o descarte e obter um certificado de descarte seguro, pagando apenas a taxa de emissão, garantindo que o descarte seja feito de forma ambientalmente responsável."
+    ];
+
+    let currentIndex = -1; // Começa com -1 para manter a frase original no HTML
+
+    function updateBox() {
+        const boxText = document.getElementById("box-text");
+
+        if (currentIndex === -1) {
+            boxText.textContent = "O ReVira Manaus é uma plataforma inovadora que visa facilitar o descarte correto de resíduos em Manaus. Através de uma experiência digital intuitiva, incentivamos a reciclagem e o cuidado com o meio ambiente, recompensando ações sustentáveis de pessoas e empresas.";
+        } else {
+            boxText.textContent = boxes[currentIndex];
+        }
+
+        document.getElementById("prev-btn").style.display = currentIndex >= 0 ? "inline-block" : "none";
+        document.getElementById("next-btn").style.display = currentIndex < boxes.length - 1 ? "inline-block" : "none";
+    }
+
+    function nextBox() {
+        if (currentIndex < boxes.length - 1) {
+            currentIndex++;
+            updateBox();
+        }
+    }
+
+    function prevBox() {
+        if (currentIndex > -1) {
+            currentIndex--;
+            updateBox();
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", updateBox);
+</script>
+
+    
+</body>
+</html>

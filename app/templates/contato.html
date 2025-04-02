@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReVira Manaus</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='contato.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='global.css') }}">
+</head>
+
+<body>
+
+    <nav>
+        <a href="{{ url_for('home') }}"><img src="{{ url_for('static', filename='logo_header2.svg') }}" alt="ReVira Manaus" width="300"></a>
+        <ul>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('sobre') }}">Sobre</a></li>
+            <li><a href="{{ url_for('descarte') }}">Forma de Descarte</a></li>
+            <li><a href="{{ url_for('coleta') }}">Pontos de Coleta</a></li>
+            <li><a href="{{ url_for('contato') }}">Contato</a></li>
+            <li><a href="{{ url_for('cadastro') }}" target="_blank">Cadastro</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <img src="{{ url_for('static', filename='logo_header2.svg') }}" alt="ReVira Manaus" width="300">
+        <h1>Transformando resíduos em oportunidades!</h1>
+    </header>
+
+    <main>
+        <section class="section" id="informacoes">
+            <h2>Formas de Contato</h2>
+            <p>Tem alguma dúvida ou deseja saber mais sobre o ReVira Manaus? Fique à vontade para entrar em contato conosco. Nossa equipe está pronta para ajudar e esclarecer qualquer questionamento.</p>
+
+            <h3>Entre em contato por:</h3>
+            <ul>
+                <li><strong>Email:</strong> <a href="mailto:contato@reviramanaus.com.br">contato@reviramanaus.com.br</a></li>
+                <li><strong>Telefone:</strong> (92) 1234-5678</li>
+                <li><strong>Redes Sociais:</strong>
+                    <ul>
+                        <li><a href="https://facebook.com/reviramanaus" target="_blank">Facebook</a></li>
+                        <li><a href="https://instagram.com/reviramanaus" target="_blank">Instagram</a></li>
+                        <li><a href="https://twitter.com/reviramanaus" target="_blank">Twitter</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 ReVira Manaus - Plataforma de Descarte Sustentável. <a href="https://www.reviramanaus.com.br">www.reviramanaus.com.br</a></p>
+    </footer>
+
+</body>
+</html>

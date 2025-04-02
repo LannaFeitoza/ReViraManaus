@@ -1,0 +1,67 @@
+/* Importando a fonte Nunito do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap');
+
+/* Reset default styles */
+  
+section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+  
+.container {
+    margin: 20px;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+    width: 50%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: #ffffff;
+}
+  
+form {
+    width: 400px;
+}
+  
+input {
+    width: 90%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #66a3a3;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    background-color: #f8f9fa;
+}
+  
+button {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: background-color 0.3s;
+}
+  
+button:hover {
+    background: #1e7e34;
+}
+  
+@media screen and (max-width: 768px) {
+    .container {
+        font-size: small;
+        margin: 10px;
+        padding: 10px;
+        width: 80%;
+    }
+  
+    form {
+        width: 200px;
+    }
+}

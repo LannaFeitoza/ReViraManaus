@@ -1,0 +1,152 @@
+/* Importando a fonte Nunito do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap');
+
+/* Aplicando a fonte Nunito a todo o conteúdo */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif; /* Fonte global */
+}
+
+/* Estilo geral do main */
+main {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+html, body {
+    overflow-x: hidden; /* Impede rolagem lateral */
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    font-family: 'Nunito', sans-serif; /* Fonte global */
+}
+
+header {
+    background: linear-gradient(135deg, #bde4a2, #89dcc5);
+    color: white;
+    text-align: center;
+    padding: 2px;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    border-bottom: 8px solid #4d8c8c;
+    padding: 20px;
+}
+
+header img {
+    width: 150px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #7fb5b5;
+    position: sticky;
+    top: 0;
+}
+
+nav ul {
+    background-color: #7fb5b5;
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    padding: 15px ;
+    z-index: 1000;
+    align-content: center;
+    width: 90%;
+}
+
+nav ul li {
+    list-style: none;
+}
+
+nav img {
+    width: 100px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.6rem;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+nav ul li a:hover {
+    transform: scale(1.05);
+}
+
+
+/* Títulos das seções */
+.section h2 {
+  font-size: 2rem;
+  color: #1b5e20;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.highlight {
+  font-weight: bold;
+  color: #2f6f70;
+  font-size: 1.6rem;
+}
+
+/* Ícone do menu hambúrguer */
+/* .menu-toggle {
+    font-size: 30px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+} */
+
+
+/* Estilo do rodapé */
+footer {
+  background: #66a3a3;
+  color: white;
+  text-align: center;
+  padding: 30px 20px;
+  font-size: 1.1rem;
+  margin-top: 40px;
+  border-radius: 20px;
+}
+
+/* Links no rodapé */
+footer a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+h2 {
+  font-size: 2rem;
+  color: #1b5e20;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 768px) {
+    nav ul {
+        background-color: #7fb5b5;
+        display: flex;
+        justify-content: space-around;
+        gap: 10px;
+        padding: 15px ;
+        flex-direction: column;
+        z-index: 1000;
+        align-content: center;
+        width: 90%;
+    }
+}
