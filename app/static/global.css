@@ -32,13 +32,13 @@ header {
   background: linear-gradient(135deg, #a8d08d, #78c2ad);
   color: white;
   text-align: center;
-  padding: 10px 10px;
   font-size: 1rem;
   border-bottom: 10px solid #4d8c8c;
 }
 
 header img {
     width: 150px;
+    margin: 1rem;
 }
 
 nav {
@@ -66,18 +66,22 @@ nav ul li {
 }
 
 nav img {
-    width: 100px;
+    width: 70px;
 }
 
 nav a {
     color: white;
     text-decoration: none;
-    font-size: 1.4rem;
+    font-size: 1rem;
+    padding: 2px 5px;
+    border-radius: 10px;
     transition: background-color 0.3s, transform 0.3s;
 }
 
 nav ul li a:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
+  background-color: #4d8c8c;
+  border-radius: 10px;
 }
 
 
@@ -92,7 +96,7 @@ nav ul li a:hover {
 .highlight {
   font-weight: 600;
   color: #2f6f70;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 /* Ícone do menu hambúrguer */
@@ -139,6 +143,11 @@ h2 {
   color: #003C2A;
   margin-bottom: 20px;
   font-weight: 600;
+}
+
+header {
+  display: block;
+  unicode-bidi: isolate;
 }
 
 @media screen and (max-width: 768px) {
