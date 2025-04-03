@@ -40,7 +40,7 @@
 
 /* Títulos dentro das caixas */
 .box h2 {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   margin-bottom: 15px;
   color: #004d40;
   font-weight: 600;
@@ -48,7 +48,7 @@
 
 /* Texto geral dentro das caixas */
 .box p {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   color: #333;
   margin-bottom: 20px;
 }
@@ -68,18 +68,19 @@
 
 /* Links dentro das caixas */
 .box a {
-  color: #004d40;
+  color: #ffffff;
+  background-color: #003C2A;
   font-weight: bold;
   text-decoration: none;
-  border: 2px solid #004d40;
   padding: 10px 20px;
-  border-radius: 20px;
+  border-radius: 10px;
+  font-size: 1rem;
   transition: background-color 0.3s, color 0.3s;
 }
 
 /* Efeito de hover nos links */
 .box a:hover {
-  background-color: #004d40;
+  background-color: #2f6f70;
   color: white;
 }
 
@@ -96,12 +97,12 @@
 
 .box button {
   padding: 12px 20px;
-  background-color: #004d40;
+  background-color: #003C2A;
   color: white;
   border: none;
-  border-radius: 20px;
+  border-radius: 10px;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 0.8rem;
   transition: background-color 0.3s;
 }
 
@@ -156,7 +157,7 @@
 .intro-container button {
   padding: 10px 20px;
   margin: 10px;
-  background-color: #004d40;
+  background-color: #003C2A;
   color: white;
   border: none;
   border-radius: 5px;
@@ -181,7 +182,7 @@
   color: #012a23 !important; /* Verde forte para o link */
   font-weight: 600;
   text-decoration: none;
-  font-size: 1.6rem; /* Tamanho de fonte já ajustado */
+  font-size: 1rem; /* Tamanho de fonte já ajustado */
 }
 
 .highlight a:hover {
