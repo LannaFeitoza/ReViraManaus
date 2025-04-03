@@ -1,17 +1,25 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<!DOCTYPE html> 
+<html lang="pt-br"> <!-- Define o idioma da página como português do Brasil -->
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ReVira Manaus</title>
+    <meta charset="UTF-8"> <!-- Define o conjunto de caracteres como UTF-8 para suporte a caracteres especiais -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ajusta a escala para dispositivos móveis -->
+    <title>ReVira Manaus</title> <!-- Define o título da página que aparece na aba do navegador -->
+
+    <!-- Importação de arquivos CSS armazenados na pasta "static" -->
     <link rel="stylesheet" href="{{ url_for('static', filename='c.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='global.css') }}">
 </head>
 
 <body>
 
+    <!-- Barra de navegação -->
     <nav>
-        <a href="{{ url_for('home') }}"><img src="{{ url_for('static', filename='logo_header2.svg') }}" alt="ReVira Manaus" width="300"></a>
+        <!-- Logo com link para a página inicial -->
+        <a href="{{ url_for('home') }}">
+            <img src="{{ url_for('static', filename='logo_header2.svg') }}" alt="ReVira Manaus" width="300">
+        </a>
+
+        <!-- Menu de navegação com links para diferentes páginas -->
         <ul>
             <li><a href="{{ url_for('home') }}">Home</a></li>
             <li><a href="{{ url_for('sobre') }}">Sobre</a></li>
@@ -19,31 +27,41 @@
             <li><a href="{{ url_for('coleta') }}">Pontos de Coleta</a></li>
             <li><a href="{{ url_for('contato') }}">Contato</a></li>
             <li><a href="{{ url_for('cadastro') }}" target="_blank">Cadastro</a></li>
+            <!-- O atributo target="_blank" faz com que a página de cadastro abra em uma nova aba -->
         </ul>
     </nav>
 
-    <!-- Header -->
+    <!-- Cabeçalho principal -->
     <header>
+        <!-- Logo da plataforma -->
         <img src="{{ url_for('static', filename='logo_header2.svg') }}" alt="ReVira Manaus" width="300">
-        <h1>Transformando resíduos em oportunidades!</h1>
+        <h1>Transformando resíduos em oportunidades!</h1> <!-- Slogan da plataforma -->
     </header>
 
+    <!-- Seção de cadastro -->
     <section class="cadastro">
         <div class="container">
-            <h3>Cadastro</h3>
+            <h3>Cadastro</h3> <!-- Título da seção -->
+
+            <!-- Formulário de cadastro -->
             <form>
-                <input type="text" placeholder="Nome completo" required>
-                <input type="email" placeholder="E-mail" required>
-                <input type="password" placeholder="Senha" required>
-                <input type="text" placeholder="Cidade/Bairro" required>
-                <button type="submit">Cadastrar como Usuário</button>
+                <input type="text" placeholder="Nome completo" required> <!-- Campo para nome -->
+                <input type="email" placeholder="E-mail" required> <!-- Campo para e-mail -->
+                <input type="password" placeholder="Senha" required> <!-- Campo para senha -->
+                <input type="text" placeholder="Cidade/Bairro" required> <!-- Campo para localização -->
+                <button type="submit">Cadastrar como Usuário</button> <!-- Botão de envio do formulário -->
             </form>
+
+            <!-- Link para cadastro de empresas -->
             <a href="#">Cadastrar como empresa</a>
         </div>
     </section>
 
+    <!-- Rodapé da página -->
     <footer>
-        <p>&copy; 2025 ReVira Manaus - Plataforma de Descarte Sustentável. <a href="https://www.reviramanaus.com.br">www.reviramanaus.com.br</a></p>
+        <p>&copy; 2025 ReVira Manaus - Plataforma de Descarte Sustentável. 
+            <a href="https://www.reviramanaus.com.br">www.reviramanaus.com.br</a>
+        </p>
     </footer>
     
 </body>
