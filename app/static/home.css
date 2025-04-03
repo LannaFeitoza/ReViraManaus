@@ -43,12 +43,12 @@
   font-size: 1.6rem;
   margin-bottom: 15px;
   color: #004d40;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 /* Texto geral dentro das caixas */
 .box p {
-  font-size: 1.1rem;
+  font-size: 1.4rem;
   color: #333;
   margin-bottom: 20px;
 }
@@ -179,7 +179,7 @@
 /* Especificando o estilo do link "Cadastre-se agora!" */
 .highlight a {
   color: #012a23 !important; /* Verde forte para o link */
-  font-weight: bold;
+  font-weight: 600;
   text-decoration: none;
   font-size: 1.6rem; /* Tamanho de fonte já ajustado */
 }

@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap');
 
-
 .search-container {
   margin-bottom: 30px;
   display: flex;
@@ -21,7 +20,7 @@
 input[type="text"] {
   padding: 10px;
   width: 70%;
-  border: 1px solid #28a745;
+  border: 1px solid #004d40;
   border-radius: 5px;
   font-size: 1rem;
   transition: border-color 0.3s;
@@ -34,7 +33,7 @@ input[type="text"]:focus {
 
 button {
   padding: 10px 20px;
-  background: #28a745;
+  background: #004d40;
   color: white;
   border: none;
   border-radius: 5px;
@@ -44,7 +43,7 @@ button {
 }
 
 button:hover {
-  background: #1e7e34;
+  background: #004d40;
 }
 
 .locations {
