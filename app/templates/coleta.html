@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ReVira Manaus</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='coleta.css') }}">
+    <title>Pontos de Coleta | ReVira Manaus</title>
+
+    <!-- Estilos CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='global.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='coleta.css') }}">
 </head>
 
 <body>
 
+    <!-- Navegação -->
     <nav>
-        <a href="{{ url_for('home') }}"><img src="{{ url_for('static', filename='logo_header2.svg') }}" alt="ReVira Manaus" width="300"></a>
+        <a href="{{ url_for('home') }}">
+            <img src="{{ url_for('static', filename='logo_header2.svg') }}" alt="ReVira Manaus" width="300">
+        </a>
         <ul>
             <li><a href="{{ url_for('home') }}">Home</a></li>
             <li><a href="{{ url_for('sobre') }}">Sobre</a></li>
@@ -22,12 +28,16 @@
         </ul>
     </nav>
 
+    <!-- Cabeçalho -->
     <header>
         <img src="{{ url_for('static', filename='logo_header2.svg') }}" alt="ReVira Manaus" width="300">
         <h1>Transformando resíduos em oportunidades!</h1>
     </header>
 
+    <!-- Conteúdo principal -->
     <main>
+
+        <!-- Seção de busca -->
         <section class="section">
             <h2>Busque um ponto de coleta próximo de você</h2>
             <div class="search-container">
@@ -36,47 +46,60 @@
             </div>
         </section>
 
+        <!-- Seção de pontos de coleta -->
         <section class="section">
             <h2>Pontos de Coleta Disponíveis</h2>
             <div class="locations" id="locations">
                 <div class="location-card">
                     <h3>EcoPonto Central</h3>
-                    <p>Endereço: Rua Verde, 123 - Centro</p>
-                    <p>Materiais aceitos: Plástico, Vidro, Papel</p>
+                    <p><strong>Endereço:</strong> Rua Verde, 123 - Centro</p>
+                    <p><strong>Materiais aceitos:</strong> Plástico, Vidro, Papel</p>
                 </div>
                 <div class="location-card">
                     <h3>ReVira Fácil</h3>
-                    <p>Endereço: Av. Sustentável, 456 - Zona Sul</p>
-                    <p>Materiais aceitos: Eletrônicos, Metal</p>
+                    <p><strong>Endereço:</strong> Av. Sustentável, 456 - Zona Sul</p>
+                    <p><strong>Materiais aceitos:</strong> Eletrônicos, Metal</p>
                 </div>
                 <div class="location-card">
                     <h3>Ponto Verde</h3>
-                    <p>Endereço: Rua do Futuro, 789 - Bairro Ecológico</p>
-                    <p>Materiais aceitos: Orgânicos, Papelão</p>
+                    <p><strong>Endereço:</strong> Rua do Futuro, 789 - Bairro Ecológico</p>
+                    <p><strong>Materiais aceitos:</strong> Orgânicos, Papelão</p>
                 </div>
             </div>
         </section>
 
+        <!-- Botão de voltar -->
         <a href="{{ url_for('home') }}" class="back-button">Voltar para a Página Inicial</a>
     </main>
 
+    <!-- Rodapé -->
     <footer>
         <p>&copy; 2025 ReVira Manaus - Plataforma de Descarte Sustentável.</p>
     </footer>
 
+    <!-- Script para busca de pontos de coleta -->
     <script>
         function buscarPontos() {
-            let termo = document.getElementById('search').value.toLowerCase();
+            let termo = document.getElementById('search').value.toLowerCase().trim();
             let locais = document.querySelectorAll('.location-card');
+            let encontrou = false;
+
             locais.forEach(local => {
                 let texto = local.innerText.toLowerCase();
                 if (texto.includes(termo)) {
-                    local.style.display = 'block';
+                    local.style.display = 'block'; // Exibe o local se houver correspondência
+                    encontrou = true;
                 } else {
-                    local.style.display = 'none';
+                    local.style.display = 'none'; // Oculta o local se não houver correspondência
                 }
             });
+
+            // Se nenhum ponto for encontrado, exibe uma mensagem
+            if (!encontrou) {
+                document.getElementById('locations').innerHTML = `<p>Nenhum ponto de coleta encontrado para "${termo}".</p>`;
+            }
         }
     </script>
+
 </body>
 </html>

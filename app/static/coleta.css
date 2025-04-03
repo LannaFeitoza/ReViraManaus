@@ -1,108 +1,123 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;bold;700&display=swap');
+/* Importando a fonte Nunito do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap');
 
+/* Container da barra de pesquisa */
 .search-container {
-  margin-bottom: 30px;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
+  margin-bottom: 30px; /* Espaçamento inferior */
+  display: flex; /* Ativa o layout flexível */
+  justify-content: center; /* Centraliza os elementos */
+  gap: 20px; /* Espaço entre os elementos */
 }
 
-/* Estilo para as seções */
+/* Estilização geral das seções */
 .section {
-  padding: 30px;
-  background: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  transition: transform 0.3s, box-shadow 0.3s;
+  padding: 30px; /* Espaçamento interno */
+  background: #ffffff; /* Cor de fundo branca */
+  border-radius: 12px; /* Bordas arredondadas */
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1); /* Sombra para realce */
+  text-align: center; /* Alinhamento centralizado */
+  transition: transform 0.3s, box-shadow 0.3s; /* Efeito de transição */
 }
 
+/* Estilização do campo de entrada de texto */
 input[type="text"] {
-  padding: 10px;
-  width: 70%;
-  border: 1px solid #003C2A;
-  border-radius: 10px;
-  font-size: 1rem;
-  transition: border-color 0.3s;
+  padding: 10px; /* Espaçamento interno */
+  width: 70%; /* Define a largura */
+  border: 1px solid #003C2A; /* Cor da borda */
+  border-radius: 10px; /* Bordas arredondadas */
+  font-size: 1rem; /* Tamanho da fonte */
+  transition: border-color 0.3s; /* Efeito ao focar */
 }
 
+/* Efeito ao focar no campo de entrada */
 input[type="text"]:focus {
-  border-color: #1e7e34;
-  outline: none;
+  border-color: #1e7e34; /* Cor da borda ao focar */
+  outline: none; /* Remove contorno padrão */
 }
 
+/* Estilização dos botões */
 button {
-  padding: 10px 20px;
-  background: #003C2A;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: background-color 0.3s;
+  padding: 10px 20px; /* Espaçamento interno */
+  background: #003C2A; /* Cor de fundo */
+  color: white; /* Cor do texto */
+  border: none; /* Remove bordas */
+  border-radius: 10px; /* Bordas arredondadas */
+  cursor: pointer; /* Muda o cursor ao passar por cima */
+  font-size: 1rem; /* Tamanho do texto */
+  transition: background-color 0.3s; /* Transição suave */
 }
 
+/* Efeito ao passar o mouse sobre o botão */
 button:hover {
-  background: #003C2A;
+  background: #1e7e34; /* Muda a cor do botão ao passar o mouse */
 }
 
+/* Estilização do container dos cartões de localização */
 .locations {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
+  display: flex; /* Ativa o layout flexível */
+  flex-wrap: wrap; /* Permite quebra de linha se necessário */
+  justify-content: center; /* Centraliza os cartões */
+  gap: 20px; /* Espaçamento entre os cartões */
 }
 
+/* Estilização dos cartões de localização */
 .location-card {
-  background: #e0f2f1;
-  padding: 20px;
-  border-radius: 15px;
-  text-align: center;
-  width: 300px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
+  background: #e0f2f1; /* Cor de fundo */
+  padding: 20px; /* Espaçamento interno */
+  border-radius: 15px; /* Bordas arredondadas */
+  text-align: center; /* Alinhamento do texto */
+  width: 300px; /* Define a largura */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Sombra para realce */
+  transition: transform 0.3s, box-shadow 0.3s; /* Efeito suave */
 }
 
+/* Efeito ao passar o mouse sobre os cartões */
 .location-card:hover {
-  transform: translateY(-15px);
-  box-shadow: 0 25px 40px rgba(0, 0, 0, 0.12);
+  transform: translateY(-15px); /* Eleva o cartão ao passar o mouse */
+  box-shadow: 0 25px 40px rgba(0, 0, 0, 0.12); /* Sombra mais intensa */
 }
 
+/* Estilização do título dentro dos cartões */
 .location-card h3 {
-  font-size: 1.5rem;
-  margin-bottom: 15px;
+  font-size: 1.5rem; /* Tamanho da fonte */
+  margin-bottom: 15px; /* Espaçamento inferior */
 }
 
+/* Estilização do botão de voltar */
 .back-button {
-  display: block;
-  text-align: center;
-  padding: 10px;
-  font-size: 1.1rem;
-  color: #003C2A;
-  font-weight: bold;
-  text-decoration: none;
-  border: 1px solid #003C2A;
-  border-radius: 10px;
-  transition: background-color 0.3s, color 0.3s;
-  margin-top: 20px;
+  display: block; /* Ocupa a largura total */
+  text-align: center; /* Alinha o texto ao centro */
+  padding: 10px; /* Espaçamento interno */
+  font-size: 1.1rem; /* Tamanho da fonte */
+  color: #003C2A; /* Cor do texto */
+  font-weight: bold; /* Negrito */
+  text-decoration: none; /* Remove sublinhado */
+  border: 1px solid #003C2A; /* Borda colorida */
+  border-radius: 10px; /* Bordas arredondadas */
+  transition: background-color 0.3s, color 0.3s; /* Efeito ao passar o mouse */
+  margin-top: 20px; /* Espaçamento superior */
 }
 
+/* Efeito ao passar o mouse sobre o botão de voltar */
 .back-button:hover {
-  background-color: #003C2A;
-  color: white;
+  background-color: #003C2A; /* Altera a cor de fundo */
+  color: white; /* Altera a cor do texto */
 }
 
-
+/* Responsividade para telas menores */
 @media (max-width: 768px) {
+  /* O campo de entrada ocupa 100% da largura */
   input[type="text"] {
     width: 100%;
   }
 
+  /* Ajusta a disposição dos cartões de localização */
   .locations {
-    flex-direction: column;
-    align-items: center;
+    flex-direction: column; /* Organiza os cartões em coluna */
+    align-items: center; /* Centraliza os itens */
   }
 
+  /* Os cartões ocupam 90% da largura da tela */
   .location-card {
     width: 90%;
   }

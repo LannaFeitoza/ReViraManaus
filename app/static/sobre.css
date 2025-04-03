@@ -1,60 +1,66 @@
 /* Importando a fonte Nunito do Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;bold&display=swap');
 
-/* Estilo para as seções */
+/* Estilização geral das seções */
 .section {
   padding: 30px;
-  background: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
-  text-align: left;
-  font-size: 1.2rem;
-  transition: transform 0.3s, box-shadow 0.3s;
+  background: #ffffff; /* Fundo branco para contraste */
+  border-radius: 12px; /* Bordas arredondadas para um visual moderno */
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1); /* Sombra suave para destaque */
+  text-align: left; /* Alinhamento padrão à esquerda */
+  font-size: 1.2rem; /* Tamanho de fonte ajustado */
+  transition: transform 0.3s, box-shadow 0.3s; /* Efeito suave ao passar o mouse */
 }
 
+/* Parágrafos dentro das seções */
 .section p {
   font-size: 1rem;
-  line-height: 1.8;
-  margin-bottom: 20px;
+  line-height: 1.8; /* Espaçamento entre linhas para melhor legibilidade */
+  margin-bottom: 20px; /* Espaçamento entre parágrafos */
 }
 
+/* Títulos dentro das seções */
 .section h3 {
-  font-size: 1.4rem;
+  font-size: 1.4rem; /* Tamanho um pouco maior para destaque */
   margin-top: 20px;
   margin-bottom: 10px;
-  color: #333;
+  color: #333; /* Cor escura para melhor contraste */
   font-weight: bold;
-  text-align: left; /* Alinhando à esquerda */
+  text-align: left; /* Alinhamento à esquerda */
 }
 
+/* Estilização da lista "Como Funciona" */
 .how-it-works ul {
-  list-style-type: none;
-  padding-left: 0;
-  font-size: 1.1rem;
+  list-style-type: none; /* Remove marcadores padrão da lista */
+  padding-left: 0; /* Remove o padding padrão */
+  font-size: 1.1rem; /* Ajuste no tamanho da fonte */
   margin-top: 15px;
-  text-align: left; /* Garantindo que a lista também fique alinhada à esquerda */
+  text-align: left; /* Mantém os itens alinhados à esquerda */
 }
 
+/* Itens da lista dentro da seção "Como Funciona" */
 .how-it-works li {
   margin-bottom: 15px;
-  padding-left: 20px;
-  position: relative;
+  padding-left: 20px; /* Espaçamento para o ícone */
+  position: relative; /* Permite posicionamento absoluto do ícone */
 }
 
+/* Adiciona um ícone de check antes de cada item da lista */
 .how-it-works li::before {
-  content: "✓";
-  color: #66a3a3;
+  content: "✓"; /* Símbolo de check */
+  color: #66a3a3; /* Cor verde-azulada para destacar */
   position: absolute;
   left: 0;
   top: 0;
 }
 
+/* Estilização geral de listas */
 ul {
   display: block;
-  list-style-type: disc;
+  list-style-type: disc; /* Mantém o estilo de lista com bolinhas */
   margin-inline-start: 0px;
   margin-inline-end: 0px;
-  padding-inline-start: 40px;
-  unicode-bidi: isolate;
-  font-size: 1rem;
+  padding-inline-start: 40px; /* Adiciona recuo para alinhamento */
+  unicode-bidi: isolate; /* Mantém a exibição correta do texto */
+  font-size: 1rem; /* Tamanho da fonte padrão */
 }
