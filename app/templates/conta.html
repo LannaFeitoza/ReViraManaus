@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Minha Conta - ReVira Manaus</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='conta.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='global.css') }}">
+  <link rel="shortcut icon" href="{{ url_for('static', filename='logo_icon.ico') }}" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header (Menu) -->
+  <nav>
+    <a href="{{ url_for('home') }}"><img src="{{ url_for('static', filename='logo_header2.svg') }}" alt="ReVira Manaus" width="300"></a>
+    <ul>
+      <li><a href="{{ url_for('home') }}">Home</a></li>
+      <li><a href="{{ url_for('sobre') }}">Sobre</a></li>
+      <li><a href="{{ url_for('coleta') }}">Pontos de Coleta</a></li>
+      <li><a href="{{ url_for('cadastro') }}">Cadastro / Login</a></li>
+      <li><a href="{{ url_for('conta') }}" target="_blank">Minha Conta</a></li>
+    </ul>
+  </nav>
+
+  <!-- Título do site -->
+  <header>
+    <img src="{{ url_for('static', filename='logo_header2.svg') }}" alt="ReVira Manaus" width="300">
+    <h1>Transformando resíduos em oportunidades!</h1>
+  </header>
+
+  <main class="dashboard">
+    {% if 'usuario' in session %}
+      <div class="container">
+        <section class="welcome box">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h2>👋 Olá, <span id="nome-usuario">{{ usuario['nome'] }}</span>!</h2>
+            <form action="{{ url_for('logout') }}" method="GET">
+              <button type="submit" class="btn-sair-topo">Sair</button>
+            </form>
+          </div>
+          <p>E-mail: <strong id="email-usuario">{{ usuario['email'] }}</strong></p>
+          <p>Você tem <strong id="pontos-usuario">{{ usuario['pontos'] }}</strong> pontos</p>
+          <p>Cidade/Bairro: <strong id="cidade-bairro-usuario">{{ usuario['cidade'] }}</strong></p>
+          <p class="last-disposal">Último descarte: <strong id="last-disposal">{{ usuario['ultimoDescarte'] or 'Nenhum' }}</strong> - <strong id="last-pontos">{{ usuario['ultimoPontos'] or '0' }}</strong> pontos</p>
+        </section>
+
+        <section class="benefits box">
+          <h2>🎁 Benefícios Disponíveis</h2>
+          <ul>
+            <li>
+              <strong>💧 50 pontos:</strong> Ganhe <strong>R$5,00 de desconto</strong> na sua conta de água.
+            </li>
+            <li>
+              <strong>💡 70 pontos:</strong> Ganhe <strong>R$7,00 de desconto</strong> na sua conta de energia elétrica.
+            </li>
+            <li>
+              <strong>🚌 60 pontos (cada):</strong> Troque por <strong>1 Vale Transporte</strong> para utilizar no transporte público.
+            </li>
+          </ul>
+          <p>Use seus pontos acumulados para obter descontos reais em serviços essenciais ou garantir sua mobilidade diária!</p>
+          <button type="button" class="btn-resgatar" disabled>Resgatar</button>
+        </section>
+
+        <section class="history box">
+          <h2>📜 Últimos Descartes</h2>
+          <div class="history-grid" id="historico-descartes">
+            {% if usuario['historico'] and usuario['historico']|length > 0 %}
+              {% for item in usuario['historico'] %}
+                <div class="item">
+                  <span>{{ item['data'] }}</span>
+                  <p>{{ item['local'] }} - {{ item['tipo'] }} - <strong>+{{ item['pontos'] }}</strong></p>
+                </div>
+              {% endfor %}
+              <a href="#" class="see-more">Ver todos</a>
+            {% else %}
+              <p>Você ainda não fez nenhum descarte.</p>
+            {% endif %}
+          </div>
+        </section>
+      </div>
+    {% else %}
+      <p>Você precisa estar logado para acessar sua conta.</p>
+      <a href="{{ url_for('cadastro') }}">Clique aqui para fazer login</a>
+    {% endif %}
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 ReVira Manaus - Plataforma de Descarte Sustentável. <a href="https://www.reviramanaus.com.br">www.reviramanaus.com.br</a></p>
+  </footer>
+
+</body>
+</html>

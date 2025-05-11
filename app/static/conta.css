@@ -1,6 +1,17 @@
 /* Importando a fonte Nunito do Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;bold&display=swap');
 
+h8 {
+  font-size: 1.5rem;
+  color: #004d40;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+/* Remover efeito de movimento e ajustar o fundo da página */
+body {
+  background-color: #ffffff; /* Definindo o fundo branco para a página */
+}
+
 /* Estilização geral das seções */
 .section {
   padding: 30px;
@@ -8,7 +19,8 @@
   border-radius: 12px;
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
   text-align: center;
-  transition: transform 0.3s, box-shadow 0.3s;
+  /* Remover a transição de movimento e sombra */
+  transition: none;
 }
 
 /* Container flexível para alinhar elementos lado a lado */
@@ -28,14 +40,22 @@
   border-radius: 15px; /* Bordas arredondadas */
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
   text-align: center;
-  transition: transform 0.3s, box-shadow 0.3s;
+  /* Remover a transição de movimento e sombra */
+  transition: none;
   overflow: hidden; /* Impede que o conteúdo vaze da caixa */
 }
 
-/* Efeito ao passar o mouse sobre as caixas */
+/* Remover o efeito de hover nos boxes */
 .box:hover {
-  transform: translateY(-15px); /* Eleva a caixa ao passar o mouse */
-  box-shadow: 0 25px 40px rgba(0, 0, 0, 0.12);
+  transform: none; /* Retirar o efeito de movimentação */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08); /* Voltar para o valor padrão de sombra */
+}
+
+/* Efeito de hover no botão */
+.box button:hover {
+  background-color: #2f6f70; /* Mantém a cor do hover do botão */
+  /* Remover qualquer transformação */
+  transform: none;
 }
 
 /* Títulos dentro das caixas */
@@ -201,9 +221,44 @@
 
 /* Ajuste na altura da caixa específica */
 #box-container {
-  height: auto; /* A altura será ajustada ao conteúdo */
+  height: 150px; /* Define uma altura fixa */
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* Ajusta o conteúdo para o topo do box */
-  overflow: hidden; /* Impede que o conteúdo vaze da caixa */
+  justify-content: space-between; /* Mantém os botões sempre alinhados no fundo */
+  overflow: hidden; /* Esconde qualquer conteúdo extra */
+}
+
+/* Estilização do botão dentro das caixas */
+.box button,
+.btn-comum {
+  padding: 12px 20px;
+  background-color: #003C2A;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: background-color 0.3s;
+}
+
+/* Efeito de hover no botão */
+.box button:hover,
+.btn-comum:hover {
+  background-color: #2f6f70;
+}
+
+.btn-sair-topo {
+  background-color: #ff4d4d;
+  color: white;
+  padding: 8px 14px;
+  font-weight: bold;
+  font-size: 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-sair-topo:hover {
+  background-color: #cc0000;
 }

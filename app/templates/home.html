@@ -28,10 +28,9 @@
         <ul>
             <li><a href="{{ url_for('home') }}">Home</a></li>
             <li><a href="{{ url_for('sobre') }}">Sobre</a></li>
-            <li><a href="{{ url_for('descarte') }}">Forma de Descarte</a></li>
             <li><a href="{{ url_for('coleta') }}">Pontos de Coleta</a></li>
-            <li><a href="{{ url_for('contato') }}">Contato</a></li>
-            <li><a href="{{ url_for('cadastro') }}" target="_blank">Cadastro</a></li>
+            <li><a href="{{ url_for('cadastro') }}">Cadastro / Login</a></li>
+            <li><a href="{{ url_for('conta') }}" target="_blank">Minha Conta</a></li>
         </ul>
     </nav>
     
@@ -43,11 +42,10 @@
     <main>
         <div class="container">
             <div class="box" id="box-container">
-                <p id="box-text" class="show">O ReVira Manaus é uma plataforma inovadora que visa facilitar o descarte correto de resíduos em Manaus. Através de uma experiência digital intuitiva, incentivamos a reciclagem e o cuidado com o meio ambiente, recompensando ações sustentáveis de pessoas e empresas.</p>
-                <div class="button-container">
-                    <button onclick="prevBox()" id="prev-btn" style="display: none;">Voltar</button>
-                    <button onclick="nextBox()" id="next-btn">Próximo</button>
-                </div>
+                <!-- Substituindo a transição de texto pela nova frase -->
+                <p id="box-text" class="show">
+                    O <strong>ReVira Manaus</strong> é uma plataforma inovadora que facilita o descarte correto de resíduos recicláveis em Manaus. Focada nos cidadãos, conecta-os aos pontos de coleta mais próximos e promove a educação ambiental, incentivando ações sustentáveis com um programa de recompensas. Nosso objetivo é envolver a população na criação de uma cidade mais limpa e sustentável.
+                </p>
             </div>
         </div>
 
@@ -57,11 +55,6 @@
         </section>
 
         <div class="container">
-            <div class="box">
-                <h2>Como Descartar?</h2>
-                <p>Descubra a forma correta de descartar resíduos e contribua com o meio ambiente.</p>
-                <a href="{{ url_for('descarte') }}" class="highlight">Saiba mais sobre descarte correto</a>
-            </div>
             <div class="box">
                 <h2>Pontos de Coleta</h2>
                 <p>Encontre locais próximos para descartar seus resíduos corretamente.</p>
@@ -74,48 +67,5 @@
         <p>&copy; 2025 ReVira Manaus - Plataforma de Descarte Sustentável. <a href="https://www.reviramanaus.com.br">www.reviramanaus.com.br</a></p>
     </footer>
 
-    <script>
-        const boxes = [
-        "Descubra como descartar seus materiais de forma fácil e rápida! Use o menu 'Forma de Descarte' e encontre a melhor maneira de reciclar.",
-        "Encontre pontos de coleta próximos a você em Manaus com facilidade! Acesse o menu 'Pontos de Coleta' e descarte seus resíduos corretamente.",
-        "Cadastre-se como membro e acumule pontos ao descartar materiais corretamente ou solicitar coleta domiciliar! Troque seus pontos por descontos em contas de água, energia, vale-transporte e produtos de empresas parceiras.",
-        "Se você tem uma empresa e deseja se tornar um ponto de coleta ou vender produtos reciclados, faça seu cadastro como empresa parceira e contribua para a sustentabilidade.",
-        "Precisa descartar materiais sensíveis? Cadastre sua empresa, agende o descarte e obtenha um certificado de descarte seguro, pagando apenas a taxa de emissão e garantindo responsabilidade ambiental."
-    ];
-    
-
-    let currentIndex = -1; // Começa com -1 para manter a frase original no HTML
-
-    function updateBox() {
-        const boxText = document.getElementById("box-text");
-
-        if (currentIndex === -1) {
-            boxText.textContent = "O ReVira Manaus é uma plataforma inovadora que visa facilitar o descarte correto de resíduos em Manaus. Através de uma experiência digital intuitiva, incentivamos a reciclagem e o cuidado com o meio ambiente, recompensando ações sustentáveis de pessoas e empresas.";
-        } else {
-            boxText.textContent = boxes[currentIndex];
-        }
-
-        document.getElementById("prev-btn").style.display = currentIndex >= 0 ? "inline-block" : "none";
-        document.getElementById("next-btn").style.display = currentIndex < boxes.length - 1 ? "inline-block" : "none";
-    }
-
-    function nextBox() {
-        if (currentIndex < boxes.length - 1) {
-            currentIndex++;
-            updateBox();
-        }
-    }
-
-    function prevBox() {
-        if (currentIndex > -1) {
-            currentIndex--;
-            updateBox();
-        }
-    }
-
-    document.addEventListener("DOMContentLoaded", updateBox);
-</script>
-
-    
 </body>
 </html>

@@ -4,63 +4,84 @@
 /* Estilização geral das seções */
 .section {
   padding: 30px;
-  background: #ffffff; /* Fundo branco para contraste */
-  border-radius: 12px; /* Bordas arredondadas para um visual moderno */
-  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1); /* Sombra suave para destaque */
-  text-align: left; /* Alinhamento padrão à esquerda */
-  font-size: 1.2rem; /* Tamanho de fonte ajustado */
-  transition: transform 0.3s, box-shadow 0.3s; /* Efeito suave ao passar o mouse */
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  margin-bottom: 50px;
 }
 
-/* Parágrafos dentro das seções */
-.section p {
-  font-size: 1rem;
-  line-height: 1.8; /* Espaçamento entre linhas para melhor legibilidade */
-  margin-bottom: 20px; /* Espaçamento entre parágrafos */
+/* Container flexível para alinhar os boxes */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+  margin-top: 30px;
 }
 
-/* Títulos dentro das seções */
-.section h3 {
-  font-size: 1.4rem; /* Tamanho um pouco maior para destaque */
-  margin-top: 20px;
+/* Estilização dos boxes */
+.box {
+  flex: 0 0 calc(50% - 15px); /* 2 por linha */
+  background: #e0f2f1;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  overflow: hidden;
+  margin-bottom: 40px; /* Espaço maior entre as linhas */
+  min-height: 200px; /* Mantém formato retangular */
+}
+
+/* Último box ocupa a linha inteira */
+.container .box:nth-child(5) {
+  flex: 0 0 100%;
+}
+
+/* Efeito hover */
+.box:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 25px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* Título do box */
+.box h2 {
+  font-size: 1.1rem; /* Fonte menor */
   margin-bottom: 10px;
-  color: #333; /* Cor escura para melhor contraste */
+  color: #004d40;
   font-weight: bold;
-  text-align: left; /* Alinhamento à esquerda */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-/* Estilização da lista "Como Funciona" */
-.how-it-works ul {
-  list-style-type: none; /* Remove marcadores padrão da lista */
-  padding-left: 0; /* Remove o padding padrão */
-  font-size: 1.1rem; /* Ajuste no tamanho da fonte */
-  margin-top: 15px;
-  text-align: left; /* Mantém os itens alinhados à esquerda */
+/* Parágrafo (curso e período) */
+.box p {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 10px;
+  font-weight: bold;
 }
 
-/* Itens da lista dentro da seção "Como Funciona" */
-.how-it-works li {
+/* Imagem dos integrantes */
+.box img {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
   margin-bottom: 15px;
-  padding-left: 20px; /* Espaçamento para o ícone */
-  position: relative; /* Permite posicionamento absoluto do ícone */
+  border-radius: 12px;
+  object-fit: cover;
 }
 
-/* Adiciona um ícone de check antes de cada item da lista */
-.how-it-works li::before {
-  content: "✓"; /* Símbolo de check */
-  color: #66a3a3; /* Cor verde-azulada para destacar */
-  position: absolute;
-  left: 0;
-  top: 0;
-}
+/* Responsividade */
+@media (max-width: 768px) {
+  .box {
+    flex: 0 0 100%;
+  }
 
-/* Estilização geral de listas */
-ul {
-  display: block;
-  list-style-type: disc; /* Mantém o estilo de lista com bolinhas */
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-  padding-inline-start: 40px; /* Adiciona recuo para alinhamento */
-  unicode-bidi: isolate; /* Mantém a exibição correta do texto */
-  font-size: 1rem; /* Tamanho da fonte padrão */
+  .container .box:nth-child(5) {
+    flex: 0 0 100%;
+  }
 }
