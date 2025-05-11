@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Minha Conta - ReVira Manaus</title>
+  <link rel="stylesheet" href="global.css">
+  <link rel="stylesheet" href="home.css">
+  <link rel="shortcut icon" href="logo_icon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav>
+    <img src="logo_header2.svg" alt="ReVira Manaus" class="logo">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="descarte.html">Descarte</a></li>
+      <li><a href="coleta.html">Coleta</a></li>
+      <li><a href="contato.html">Contato</a></li>
+      <li><a href="c.html" onclick="logout()">Sair</a></li>
+    </ul>
+  </nav>
+
+  <main class="dashboard">
+    <section class="welcome">
+      <h1>👋 Olá, <span id="nome-usuario">...</span>!</h1>
+      <p>E-mail: <strong id="email-usuario">...</strong></p>
+      <button onclick="trocarEmail()">Trocar e-mail</button>
+      <p>Você tem <strong id="pontos-usuario">...</strong> pontos</p>
+      <div class="progress-bar">
+        <div class="progress" id="progress-bar" style="width: 0%;"></div>
+      </div>
+      <p class="last-disposal">Último descarte: <strong id="last-disposal">...</strong> - <strong id="last-pontos">...</strong> pontos</p>
+    </section>
+
+    <section class="benefits">
+      <h2>🎁 Benefícios Disponíveis</h2>
+      <ul>
+        <li>
+          <strong>💧 50 pontos:</strong> Ganhe <strong>R$5,00 de desconto</strong> na sua conta de água.
+        </li>
+        <li>
+          <strong>💡 70 pontos:</strong> Ganhe <strong>R$7,00 de desconto</strong> na sua conta de energia elétrica.
+        </li>
+        <li>
+          <strong>🚌 60 pontos (cada):</strong> Troque por <strong>1 Vale Transporte</strong> para utilizar no transporte público.
+        </li>
+      </ul>
+      <p>Use seus pontos acumulados para obter descontos reais em serviços essenciais ou garantir sua mobilidade diária!</p>
+      <button>Resgatar</button>
+    </section>
+
+    <section class="history">
+      <h2>📜 Últimos Descartes</h2>
+      <div class="history-grid" id="historico-descartes"></div>
+      <a href="#" class="see-more">Ver tudo</a>
+    </section>
+
+    <button onclick="excluirConta()">Excluir conta</button>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 ReVira Manaus - <a href="#">www.reviramanaus.com.br</a></p>
+  </footer>
+
+  <script src="static/auth.js"></script>
+  <script>
+    window.onload = function () {
+      const usuario = JSON.parse(localStorage.getItem('usuario'));
+
+      if (!usuario) {
+        window.location.href = 'c.html';
+        return;
+      }
+
+      document.getElementById('nome-usuario').textContent = usuario.nome;
+      document.getElementById('email-usuario').textContent = usuario.email;
+      document.getElementById('pontos-usuario').textContent = usuario.pontos || '0';
+      document.getElementById('last-disposal').textContent = usuario.ultimoDescarte || 'Nenhum';
+      document.getElementById('last-pontos').textContent = usuario.ultimoPontos || '0';
+
+      // Atualiza progress bar
+      const pontos = usuario.pontos || 0;
+      const progress = Math.min((pontos / 100) * 100, 100);
+      document.getElementById('progress-bar').style.width = progress + '%';
+
+      // Exibe o histórico de descartes
+      const historicoContainer = document.getElementById('historico-descartes');
+      const historico = usuario.historico || [];
+
+      if (historico.length === 0) {
+        historicoContainer.innerHTML = "<p>Você ainda não fez nenhum descarte.</p>";
+      } else {
+        historico.forEach(item => {
+          const div = document.createElement('div');
+          div.classList.add('item');
+          div.innerHTML = `
+            <span>${item.data}</span>
+            <p>${item.local} - ${item.tipo} - <strong>+${item.pontos}</strong></p>
+          `;
+          historicoContainer.appendChild(div);
+        });
+      }
+    };
+
+    function trocarEmail() {
+      const novoEmail = prompt("Digite seu novo e-mail:");
+      const usuario = JSON.parse(localStorage.getItem('usuario'));
+      if (usuario && novoEmail) {
+        usuario.email = novoEmail;
+        localStorage.setItem('usuario', JSON.stringify(usuario));
+        alert("E-mail atualizado com sucesso!");
+        location.reload();
+      }
+    }
+
+    function excluirConta() {
+      const confirmacao = confirm("Tem certeza que deseja excluir sua conta? Todos os dados serão perdidos.");
+      if (confirmacao) {
+        localStorage.removeItem('usuario');
+        alert("Conta excluída com sucesso!");
+        window.location.href = 'c.html';
+      }
+    }
+
+    function logout() {
+      localStorage.removeItem('usuario');
+      alert("Você saiu da sua conta.");
+      window.location.href = 'c.html';
+    }
+  </script>
+</body>
+</html>

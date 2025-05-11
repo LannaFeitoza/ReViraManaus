@@ -1,0 +1,141 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Nunito', sans-serif;
+}
+
+body {
+  background: #f2fefb;
+  color: #333;
+  line-height: 1.6;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #66a3a3;
+  padding: 15px 30px;
+  position: sticky;
+  top: 0;
+}
+
+.logo {
+  width: 100px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+.dashboard {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+section {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+h1, h2 {
+  margin-bottom: 15px;
+  color: #004d40;
+}
+
+button {
+  background-color: #004d40;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #2f6f70;
+}
+
+.progress-bar {
+  background: #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  height: 14px;
+  margin: 10px 0;
+}
+
+.progress {
+  height: 100%;
+  background: #66a3a3;
+}
+
+.last-disposal {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.benefits ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.benefits li {
+  margin-bottom: 10px;
+}
+
+.history-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.history-grid .item {
+  background: #e0f2f1;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+.see-more {
+  display: inline-block;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #004d40;
+  text-decoration: none;
+}
+
+footer {
+  text-align: center;
+  padding: 30px 15px;
+  background: #7fb5b5;
+  color: white;
+  margin-top: 40px;
+  border-top: 6px solid #4d8c8c;
+}
+
+footer a {
+  color: white;
+  font-weight: bold;
+}
