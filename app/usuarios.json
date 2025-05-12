@@ -1,0 +1,12 @@
+{
+    "teste@gmail.com": {
+        "nome": "Testes",
+        "email": "teste@gmail.com",
+        "senha": "123456",
+        "cidade": "Rua Teste",
+        "pontos": 0,
+        "ultimoDescarte": "",
+        "ultimoPontos": "",
+        "historico": []
+    }
+}
