@@ -9,6 +9,18 @@
     <!-- Estilos CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='global.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='coleta.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+    <style>
+       
+    #map {
+        height: 400px;
+        width: 90%;
+        margin: 20px auto;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    </style>
 </head>
 
 <body>
@@ -40,32 +52,20 @@
         <section class="section">
             <h2>Busque um ponto de coleta próximo de você</h2>
             <div class="search-container">
-                <input type="text" id="search" placeholder="Digite sua cidade ou bairro">
+                <input type="text" id="search" placeholder="Digite seu bairro">
                 <button onclick="buscarPontos()">Buscar</button>
             </div>
         </section>
 
         <!-- Seção de pontos de coleta -->
         <section class="section">
-            <h2>Pontos de Coleta Disponíveis</h2>
-            <div class="locations" id="locations">
-                <div class="location-card">
-                    <h3>EcoPonto Central</h3>
-                    <p><strong>Endereço:</strong> Rua Verde, 123 - Centro</p>
-                    <p><strong>Materiais aceitos:</strong> Plástico, Vidro, Papel</p>
-                </div>
-                <div class="location-card">
-                    <h3>ReVira Fácil</h3>
-                    <p><strong>Endereço:</strong> Av. Sustentável, 456 - Zona Sul</p>
-                    <p><strong>Materiais aceitos:</strong> Eletrônicos, Metal</p>
-                </div>
-                <div class="location-card">
-                    <h3>Ponto Verde</h3>
-                    <p><strong>Endereço:</strong> Rua do Futuro, 789 - Bairro Ecológico</p>
-                    <p><strong>Materiais aceitos:</strong> Orgânicos, Papelão</p>
-                </div>
-            </div>
+            
+            <div id="lista-locais" style="margin: 20px auto; width: 90%; text-align: left;"></div>
+           <div id="map"></div>
+           
+
         </section>
+         
 
         <!-- Botão de voltar -->
         <a href="{{ url_for('home') }}" class="back-button">Voltar para a Página Inicial</a>
@@ -77,7 +77,71 @@
     </footer>
 
     <!-- Script para busca de pontos de coleta -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script>
+    const map = L.map('map').setView([-3.1190, -60.0217], 13); // Manaus
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: 'Map data © OpenStreetMap contributors',
+    }).addTo(map);
+
+
+    const pontosDeColeta = [
+        { lat: -3.015270445285545, lng: -60.029543204950976, nome: "Flex", bairro: "Colonia Terra Nova" },
+        { lat: -3.1051926834694528, lng: -60.011303742204646, nome: "Supermercado Carrefour - Adrianópolis", bairro: "adrianópolis" },
+        { lat: -3.077604243029138, lng: -60.022764847279106, nome: "Supermercado Carrefour - Flores", bairro: "flores" },
+        { lat: -3.0920857797185892, lng: -60.04987523378596, nome: "Supermercado Carrefour - Ponta Negra", bairro: "ponta negra" },
+        { lat: -3.0749970960794686, lng: -59.9646456975524, nome: "Supermercado Atack - Coroado", bairro: "coroado" }
+    ];
+
+    let marcadores = [];
+
+   function buscarPontos() {
+    let termo = document.getElementById('search').value.toLowerCase().trim();
+    let listaLocais = document.getElementById('lista-locais');
+
+    // Limpa lista anterior
+    listaLocais.innerHTML = '';
+
+    // Remove marcadores antigos do mapa
+    marcadores.forEach(marker => map.removeLayer(marker));
+    marcadores = [];
+
+    // Filtrar pontos por bairro
+    const pontosFiltrados = pontosDeColeta.filter(p => p.bairro.includes(termo));
+
+    if (pontosFiltrados.length > 0) {
+        let bounds = [];
+
+        pontosFiltrados.forEach(ponto => {
+            // Adiciona marcador no mapa
+            const marker = L.marker([ponto.lat, ponto.lng])
+                .addTo(map)
+                .bindPopup(`<b>${ponto.nome}</b>`);
+            marcadores.push(marker);
+            bounds.push([ponto.lat, ponto.lng]);
+
+            // Adiciona à lista de nomes
+            const item = document.createElement('p');
+            item.textContent = `📍 ${ponto.nome} (${ponto.bairro})`;
+            listaLocais.appendChild(item);
+        });
+
+        // Ajusta zoom para os pontos encontrados
+        map.fitBounds(bounds);
+    } else {
+        listaLocais.innerHTML = `<p>Nenhum ponto de coleta encontrado para "${termo}".</p>`;
+    }
+}
+
+    // Mostrar todos os pontos inicialmente
+    pontosDeColeta.forEach(ponto => {
+        const marker = L.marker([ponto.lat, ponto.lng]).addTo(map).bindPopup(`<b>${ponto.nome}</b>`);
+        marcadores.push(marker);
+    });
+</script>
+
+    <!-- <script>
         function buscarPontos() {
             let termo = document.getElementById('search').value.toLowerCase().trim();
             let locais = document.querySelectorAll('.location-card');
@@ -98,7 +162,28 @@
                 document.getElementById('locations').innerHTML = `<p>Nenhum ponto de coleta encontrado para "${termo}".</p>`;
             }
         }
-    </script>
+        const map = L.map('map').setView([-3.1190, -60.0217], 13); // Manaus
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: 'Map data © OpenStreetMap contributors',
+    }).addTo(map);
+
+    const pontosDeColeta = [
+     
+      { lat: -3.015270445285545, lng: -60.029543204950976, nome: "flex"},
+      { lat:-3.1051926834694528, lng: -60.011303742204646, nome: "Supermercado Carrefour - Adrianópolis"},
+      { lat: -3.077604243029138,lng: -60.022764847279106,nome: "Supermercado Carrefour - Flores"},
+      { lat: -3.0920857797185892,lng: -60.04987523378596, nome: "Supermercado Carrefour - Ponta Negra"},
+      { lat: -3.0749970960794686, lng: -59.9646456975524, nome: "Supermercado Atack - Coroado"}
+    ];
+
+    pontosDeColeta.forEach(ponto => {
+      L.marker([ponto.lat, ponto.lng])
+        .addTo(map)
+        .bindPopup(`<b>${ponto.nome}</b>`);
+    });
+        
+    </script> -->
 
 </body>
 </html>
