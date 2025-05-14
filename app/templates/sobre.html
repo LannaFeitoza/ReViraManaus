@@ -2,8 +2,8 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ReVira Manaus</title>
 
     <!-- Estilos CSS -->
@@ -16,7 +16,7 @@
     <!-- Navegação -->
     <nav>
         <a href="{{ url_for('home') }}">
-            <img src="{{ url_for('static', filename='logo_header2.svg') }}" alt="ReVira Manaus" width="300">
+            <img src="{{ url_for('static', filename='logo_header2.svg') }}" alt="ReVira Manaus" width="300" />
         </a>
         <ul>
             <li><a href="{{ url_for('home') }}">Home</a></li>
@@ -29,65 +29,78 @@
 
     <!-- Cabeçalho -->
     <header>
-        <img src="{{ url_for('static', filename='logo_header2.svg') }}" alt="ReVira Manaus" width="300">
+        <img src="{{ url_for('static', filename='logo_header2.svg') }}" alt="ReVira Manaus" width="300" />
         <h1>Transformando resíduos em oportunidades!</h1>
     </header>
 
-    <!-- Conteúdo principal -->
-    <main>
+    <!-- Seção: Quem somos -->
+    <section class="section">
+        <h2>Quem Somos</h2>
+        <p>
+            Somos estudantes da FUCAPI e desenvolvemos este projeto como parte da disciplina de Programação Web.
+            A proposta é oferecer uma solução digital que facilite o descarte correto de materiais recicláveis em
+            Manaus,
+            conectando cidadãos a pontos de coleta e promovendo educação ambiental.
+        </p>
+        <p>
+            Nossa missão é inspirar, educar e apoiar a comunidade interessada em Arduino, desde iniciantes até
+            entusiastas experientes. Seja bem-vindo a esta jornada de aprendizado e inovação!
+        </p>
+    </section>
 
-        <!-- Seção: Quem somos -->
-        <section class="section">
-            <h2>Quem Somos</h2>
-            <p>Somos estudantes da FUCAPI e desenvolvemos este projeto como parte da disciplina de Programação Web. A proposta é oferecer uma solução digital que facilite o descarte correto de materiais recicláveis em Manaus, conectando cidadãos a pontos de coleta e promovendo educação ambiental.</p>
-            <p>Nossa missão é inspirar, educar e apoiar a comunidade interessada em Arduino, desde iniciantes até entusiastas experientes. Seja bem-vindo a esta jornada de aprendizado e inovação!</p>
-        </section>
+    <!-- Seção: Nosso Time -->
+    <section class="section">
+        <h2>Nosso Time</h2>
+        <p>
+            Desenvolvemos este projeto de forma colaborativa, aplicando os conhecimentos da disciplina de
+            Programação Web
+            para criar uma solução tecnológica focada na sustentabilidade urbana. Ele está sendo apresentado no XII
+            Encontro Regional de Computação e Sistemas de Informação (ENCOSIS), alinhado ao tema Tecnologias Digitais
+            para o Desenvolvimento Amazônico e Inclusão Social.
+        </p>
 
-        <!-- Seção: Nosso time -->
-        <section class="section">
-            <h2>Nosso Time</h2>
-            <p>Desenvolvemos este projeto de forma colaborativa, aplicando os conhecimentos da disciplina de Programação Web para criar uma solução tecnológica focada na sustentabilidade urbana. Ele está sendo apresentado no XII Encontro Regional de Computação e Sistemas de Informação (ENCOSIS), alinhado ao tema Tecnologias Digitais para o Desenvolvimento Amazônico e Inclusão Social.</p>
-
-            <div class="container">
-                <div class="box">
-                    <img src="foto1.jpg" alt="Lanna Feitoza">
-                    <h2>Lanna Eduarda Pimenta Feitoza</h2>
-                    <p>Acadêmica em Engenharia de Software</p>
-                    <p>Estuda na FUCAPI desde 2021 e atualmente está no 9º período.</p>
-                </div>
-                <div class="box">
-                    <img src="foto2.jpg" alt="Marina Serrão">
-                    <h2>Marina Lyndsay Malcher Azevedo Serrão</h2>
-                    <p>Acadêmica em Engenharia de Software</p>
-                    <p>Estuda na FUCAPI desde 202x e atualmente está no xº período.</p>
-                </div>
-                <div class="box">
-                    <img src="foto3.jpg" alt="Karol Souza">
-                    <h2>Karol Moraes de Souza</h2>
-                    <p>Acadêmico em Engenharia de Software</p>
-                    <p>Estuda na FUCAPI desde 202x e atualmente está no xº período.</p>
-                </div>
-                <div class="box">
-                    <img src="foto4.jpg" alt="João Lima">
-                    <h2>João Vitor Mesquita de Lima</h2>
-                    <p>Acadêmico em Engenharia de Software</p>
-                    <p>Juntou-se à FUCAPI em 202x e atualmente está no xº período.</p>
-                </div>
-                <div class="box">
-                    <img src="foto5.jpg" alt="Rodrigo Lima">
-                    <h2>Rodrigo Dantas de Oliveira Lima</h2>
-                    <p>Acadêmico em Ciências da Computação</p>
-                    <p>Estuda na FUCAPI desde 202x e atualmente está no xº período.</p>
-                </div>
+        <div class="container">
+            <div class="box">
+                <img src="{{ url_for('static', filename='foto1.jpg') }}" alt="Lanna Feitoza" />
+                <h2>Lanna Eduarda Pimenta Feitoza</h2>
+                <p class="curso">Engenharia de Software</p>
+                <p>Estuda na FUCAPI desde 2021 e atualmente está no 9º período.</p>
             </div>
-            
-        </section>
 
-    </main>
+            <div class="box">
+                <img src="{{ url_for('static', filename='foto2.jpg') }}" alt="Marina Serrão" />
+                <h2>Marina Lyndsay Malcher Azevedo Serrão</h2>
+                <p class="curso">Engenharia de Software</p>
+                <p>Estuda na FUCAPI desde 2023 e atualmente está no 4º período.</p>
+            </div>
+
+            <div class="box">
+                <img src="{{ url_for('static', filename='foto4.jpg') }}" alt="Karol Souza" />
+                <h2>Karol Moraes de Souza</h2>
+                <p class="curso">Engenharia de Software</p>
+                <p>Estuda na FUCAPI desde 2023 e atualmente está no 4º período.</p>
+            </div>
+
+            <div class="box">
+                <img src="{{ url_for('static', filename='foto3.jpg') }}" alt="João Lima" />
+                <h2>João Vitor Mesquita de Lima</h2>
+                <p class="curso">Engenharia de Software</p>
+                <p>Estuda na FUCAPI em 2023 e atualmente está no 5º período.</p>
+            </div>
+
+            <div class="box">
+                <img src="{{ url_for('static', filename='foto5.jpg') }}" alt="Rodrigo Lima" />
+                <h2>Rodrigo Dantas de Oliveira Lima</h2>
+                <p class="curso">Engenharia de Software</p>
+                <p>Estuda na FUCAPI desde 2023 e atualmente está no 5º período.</p>
+            </div>
+        </div>
+    </section>
 
     <!-- Rodapé -->
     <footer>
-        <p>&copy; 2025 ReVira Manaus - Plataforma de Descarte Sustentável. 
+        <p>
+            &copy; 2025 ReVira Manaus - Plataforma de Descarte Sustentável.
             <a href="https://www.reviramanaus.com.br">www.reviramanaus.com.br</a>
         </p>
     </footer>

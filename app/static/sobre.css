@@ -1,87 +1,85 @@
 /* Importando a fonte Nunito do Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;bold&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
+
+body {
+  font-family: 'Nunito', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f7f7f7;
+}
 
 /* Estilização geral das seções */
 .section {
-  padding: 30px;
+  width: 100%;
+  max-width: 90%;
+  padding-left: clamp(20px, 5vw, 40px);
+  padding-right: clamp(20px, 5vw, 40px);
+  margin: 40px auto;
   background: #ffffff;
   border-radius: 12px;
-  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  padding-top: 30px;
+  padding-bottom: 30px;
   text-align: center;
-  transition: transform 0.3s, box-shadow 0.3s;
-  margin-bottom: 50px;
 }
 
-/* Container flexível para alinhar os boxes */
+/* Container dos membros */
 .container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   gap: 30px;
   margin-top: 30px;
 }
 
 /* Estilização dos boxes */
 .box {
-  flex: 0 0 calc(50% - 15px); /* 2 por linha */
+  flex: 0 1 300px; /* Aumenta a largura padrão */
   background: #e0f2f1;
-  padding: 25px;
+  padding: 20px;
   border-radius: 15px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
   text-align: center;
   transition: transform 0.3s, box-shadow 0.3s;
   overflow: hidden;
-  margin-bottom: 40px; /* Espaço maior entre as linhas */
-  min-height: 200px; /* Mantém formato retangular */
-}
-
-/* Último box ocupa a linha inteira */
-.container .box:nth-child(5) {
-  flex: 0 0 100%;
+  min-height: 200px;
 }
 
 /* Efeito hover */
 .box:hover {
-  transform: translateY(-15px);
+  transform: translateY(-10px);
   box-shadow: 0 25px 40px rgba(0, 0, 0, 0.12);
 }
 
-/* Título do box */
+/* Imagem dos integrantes (quadrada e menor) */
+.box img {
+  width: 160px;
+  height: 160px;
+  border-radius: 12px;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+/* Nome do integrante */
 .box h2 {
-  font-size: 1.1rem; /* Fonte menor */
+  font-size: 1.2rem;
   margin-bottom: 10px;
   color: #004d40;
   font-weight: bold;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
-/* Parágrafo (curso e período) */
+/* Informações adicionais */
 .box p {
   font-size: 1rem;
   color: #333;
-  margin-bottom: 10px;
-  font-weight: bold;
-}
-
-/* Imagem dos integrantes */
-.box img {
-  width: 100%;
-  max-width: 200px;
-  height: auto;
-  margin-bottom: 15px;
-  border-radius: 12px;
-  object-fit: cover;
+  margin-bottom: 8px;
+  font-weight: 500;
 }
 
 /* Responsividade */
 @media (max-width: 768px) {
   .box {
-    flex: 0 0 100%;
-  }
-
-  .container .box:nth-child(5) {
     flex: 0 0 100%;
   }
 }
