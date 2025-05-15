@@ -27,6 +27,30 @@
         .toggle-link:hover {
             text-decoration: underline;
         }
+        html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+footer {
+    
+    text-align: center;
+    padding: 1rem;
+    background: #66a3a3;
+  color: white;
+  text-align: center;
+  padding: 30px 20px;
+  font-size: 1.1rem;
+  margin-top: 40px;
+  border-radius: 20px;
+}
+
     </style>
 </head>
 <body>
@@ -44,10 +68,7 @@
         </ul>
     </nav>
 
-    <header>
-        <img src="{{ url_for('static', filename='logo_header2.svg') }}" alt="ReVira Manaus" width="300">
-        <h1>Transformando resíduos em oportunidades!</h1>
-    </header>
+  
 
     <main>
         <div class="form-container">
