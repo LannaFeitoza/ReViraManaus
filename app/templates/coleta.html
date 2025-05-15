@@ -14,7 +14,7 @@
     <style>
        
     #map {
-        height: 400px;
+        height: 300px;
         width: 90%;
         margin: 20px auto;
         border-radius: 10px;
@@ -40,10 +40,10 @@
     </nav>
 
     <!-- Cabeçalho -->
-    <header>
+    <!-- <header>
         <img src="{{ url_for('static', filename='logo_header2.svg') }}" alt="ReVira Manaus" width="300">
         <h1>Transformando resíduos em oportunidades!</h1>
-    </header>
+    </header> -->
 
     <!-- Conteúdo principal -->
     <main>
@@ -87,52 +87,54 @@
 
 
     const pontosDeColeta = [
-        { lat: -3.015270445285545, lng: -60.029543204950976, nome: "Flex", bairro: "Colonia Terra Nova" },
+        
         { lat: -3.1051926834694528, lng: -60.011303742204646, nome: "Supermercado Carrefour - Adrianópolis", bairro: "adrianópolis" },
         { lat: -3.077604243029138, lng: -60.022764847279106, nome: "Supermercado Carrefour - Flores", bairro: "flores" },
         { lat: -3.0920857797185892, lng: -60.04987523378596, nome: "Supermercado Carrefour - Ponta Negra", bairro: "ponta negra" },
-        { lat: -3.0749970960794686, lng: -59.9646456975524, nome: "Supermercado Atack - Coroado", bairro: "coroado" }
+        { lat: -3.0749970960794686, lng: -59.9646456975524, nome: "Supermercado Atack - Coroado", bairro: "coroado" },
+        { lat: -3.0358007489174477, lng: -59.994818104950674, nome: "Supermercado Emporium DB - Japiim",bairro:"Cidade Nova"},
+        { lat: -3.1202676899769597, lng: -59.98083334727881, nome: "Supermercado DB - Japiim",bairro:"Japiim"},
+        { lat: -3.110437271134725, lng: -60.05040191844319, nome: "Supermercado Nova Era - Santo Antônio",bairro:"Santo Antônio"},
+        { lat:-3.0401046947436154, lng: -59.944099404950705, nome: "Assaí Atacadista - Grande Circular",bairro:"Jorge Teixeira"}
     ];
 
     let marcadores = [];
 
-   function buscarPontos() {
-    let termo = document.getElementById('search').value.toLowerCase().trim();
+function buscarPontos() {
+    let termo = document.getElementById('search').value.trim().toLowerCase();
     let listaLocais = document.getElementById('lista-locais');
 
-    // Limpa lista anterior
     listaLocais.innerHTML = '';
 
-    // Remove marcadores antigos do mapa
     marcadores.forEach(marker => map.removeLayer(marker));
     marcadores = [];
 
-    // Filtrar pontos por bairro
-    const pontosFiltrados = pontosDeColeta.filter(p => p.bairro.includes(termo));
+    const pontosFiltrados = pontosDeColeta.filter(p =>
+        p.bairro.toLowerCase().includes(termo) ||
+        p.nome.toLowerCase().includes(termo)
+    );
 
     if (pontosFiltrados.length > 0) {
         let bounds = [];
 
         pontosFiltrados.forEach(ponto => {
-            // Adiciona marcador no mapa
             const marker = L.marker([ponto.lat, ponto.lng])
                 .addTo(map)
                 .bindPopup(`<b>${ponto.nome}</b>`);
             marcadores.push(marker);
             bounds.push([ponto.lat, ponto.lng]);
 
-            // Adiciona à lista de nomes
             const item = document.createElement('p');
             item.textContent = `📍 ${ponto.nome} (${ponto.bairro})`;
             listaLocais.appendChild(item);
         });
 
-        // Ajusta zoom para os pontos encontrados
         map.fitBounds(bounds);
     } else {
         listaLocais.innerHTML = `<p>Nenhum ponto de coleta encontrado para "${termo}".</p>`;
     }
 }
+
 
     // Mostrar todos os pontos inicialmente
     pontosDeColeta.forEach(ponto => {
@@ -141,49 +143,6 @@
     });
 </script>
 
-    <!-- <script>
-        function buscarPontos() {
-            let termo = document.getElementById('search').value.toLowerCase().trim();
-            let locais = document.querySelectorAll('.location-card');
-            let encontrou = false;
-
-            locais.forEach(local => {
-                let texto = local.innerText.toLowerCase();
-                if (texto.includes(termo)) {
-                    local.style.display = 'block'; // Exibe o local se houver correspondência
-                    encontrou = true;
-                } else {
-                    local.style.display = 'none'; // Oculta o local se não houver correspondência
-                }
-            });
-
-            // Se nenhum ponto for encontrado, exibe uma mensagem
-            if (!encontrou) {
-                document.getElementById('locations').innerHTML = `<p>Nenhum ponto de coleta encontrado para "${termo}".</p>`;
-            }
-        }
-        const map = L.map('map').setView([-3.1190, -60.0217], 13); // Manaus
-
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: 'Map data © OpenStreetMap contributors',
-    }).addTo(map);
-
-    const pontosDeColeta = [
-     
-      { lat: -3.015270445285545, lng: -60.029543204950976, nome: "flex"},
-      { lat:-3.1051926834694528, lng: -60.011303742204646, nome: "Supermercado Carrefour - Adrianópolis"},
-      { lat: -3.077604243029138,lng: -60.022764847279106,nome: "Supermercado Carrefour - Flores"},
-      { lat: -3.0920857797185892,lng: -60.04987523378596, nome: "Supermercado Carrefour - Ponta Negra"},
-      { lat: -3.0749970960794686, lng: -59.9646456975524, nome: "Supermercado Atack - Coroado"}
-    ];
-
-    pontosDeColeta.forEach(ponto => {
-      L.marker([ponto.lat, ponto.lng])
-        .addTo(map)
-        .bindPopup(`<b>${ponto.nome}</b>`);
-    });
-        
-    </script> -->
-
+   
 </body>
 </html>
